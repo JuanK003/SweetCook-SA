@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sweet Cook S.A.</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <style>
+        body {
+            background-image: url("https://www.eldulcehogar.es/wp-content/uploads/2021/02/Decoracion-Navidad-0-53080980_m.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        a {
+            color: white
+        }
+
+            a:hover {
+                color: white
+            }
+
+        footer {
+            font-size: larger;
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            height: 30px;
+            width: 100%;
+            background: rgba(0,0,0,.7);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            color: white;
+            text-align: center;
+        }
+    </style>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <p>&copy; Derechos Reservados @DateTime.Now.Year - J&J Systems </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

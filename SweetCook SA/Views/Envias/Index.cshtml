@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SweetCook_SA.Models.Envia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TablaDepartamentoRecibe.NombreDepartamentoRecibe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TablaProducto.NombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TablaSucursal.NombreTienda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreEnvio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadEnvia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TablaDepartamentoRecibe.NombreDepartamentoRecibe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TablaProducto.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TablaSucursal.NombreTienda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEnvio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadEnvia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

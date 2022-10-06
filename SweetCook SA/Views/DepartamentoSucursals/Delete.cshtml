@@ -1,0 +1,52 @@
+﻿@model SweetCook_SA.Models.DepartamentoSucursal
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<style>
+    .Contenedor {
+        margin-top: 10%;
+        width: 100vw 100vh;
+        height: 50vh 150vw;
+        position: relative;
+        background: rgb(255, 255, 255, .6);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,.9);
+        border-radius: 10px;
+    }
+</style>
+
+<div class="Contenedor col-lg-12 col-lg-10">
+    <h2 style="text-align:center; font-size:50px; font-weight:bold;">Eliminar</h2>
+    <h3 style="font-size:25px; font-weight:bold;">¿Estás seguro de eliminar este campo?</h3>
+    <div>
+        <h4 style="font-size:20px;font-weight:bold;">Departamento Sucursal</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreDepartamento)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NombreDepartamento)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <left style="padding:15px 70px">
+                    <input type="submit" value="Eliminar" class="btn btn-danger" />
+                    <p class="btn btn-info">
+                        @Html.ActionLink("Regresar", "Index")
+                    </p>
+                </left>
+            </div>
+        }
+    </div>
+    <br />
+</div>

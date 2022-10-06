@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SweetCook_SA.Models.DepartamentoSucursal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .Contenedor {
+        margin-top: 8%;
+        width: 100vw 100vh;
+        height: 50vw 50vh;
+        position: relative;
+        background: rgb(255, 255, 255, .6);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,.9);
+        border-radius: 10px;
+    }
+</style>
+
+<div class="Contenedor col-lg-12 col-lg-10">
+    <br /><br />
+    <h2 style="text-align:center; font-size:50px; font-weight:bold;">Inicio</h2>
+    <p style="margin-left:25px;font-size:20px;" class="btn btn-success">
+        @Html.ActionLink("Nuevo", "Create")
+    </p>
+    <br />
+    <br />
+    <table style=" font-size:15px; font-weight: bolder" class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreDepartamento)
+            </th>
+            <th>Opciones</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreDepartamento)
+                </td>
+                <td>
+                    <p class="btn btn-warning">@Html.ActionLink("Edit", "Edit", new { id = item.Id })</p>
+                    <p class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.Id })</p>
+                    <p class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</p>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

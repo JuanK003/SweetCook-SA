@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right ">
+        <div class="navbar-header col-lg-12 col-lg-10">
+             @Html.ActionLink("Sweet Cook S.A.", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <li>@Html.ActionLink("Departamento de Sucursal", "Index", "DepartamentoSucursals")</li>
+        <li>@Html.ActionLink("Sucursal", "Index", "Sucursals")</li>
+        <li>@Html.ActionLink("Departamento que Recibe", "Index", "DepartamentoRecibes")</li>
+        <li>@Html.ActionLink("Productos", "Index", "Productoes")</li>
+        <li>@Html.ActionLink("Enviar", "Index", "Envias")</li>
+        <li>@Html.ActionLink("Recibe", "Index", "Recibes")</li>
+        <li>
+            @Html.ActionLink("Hola! " + User.Identity.GetUserName() + "👋", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

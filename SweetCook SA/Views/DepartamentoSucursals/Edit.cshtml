@@ -1,0 +1,55 @@
+﻿@model SweetCook_SA.Models.DepartamentoSucursal
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<style>
+    .Contenedor {
+        margin-top: 8%;
+        width: 100vw 100vh;
+        height: 100vw 80vh;
+        position: relative;
+        background: rgb(255, 255, 255, .6);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,.9);
+        border-radius: 10px;
+    }
+</style>
+
+<div class="Contenedor col-lg-12 col-lg-10">
+    <h2 style="text-align:center; font-size:50px; font-weight:bold;">Editar</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4 style="font-size:25px;font-weight:bold;">DepartamentoSucursal</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreDepartamento, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreDepartamento, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreDepartamento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Guardar" class="btn btn-info" />
+                    <p class="btn btn-info">
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
